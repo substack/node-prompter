@@ -42,12 +42,15 @@ $ cat output.json
 json methods
 ============
 
-prompt(text, value)
--------------------
+prompt(text, value, cb)
+-----------------------
 
 Like `window.prompt()`, prompt the user with `text` and an optional default
 `value`. If `text` isn't provided, the long key path from the root of the json
 document is used.
+
+If `cb` is specified, use the return value of `cb(s)` for the string `s`
+obtained from the user.
 
 functions
 ---------
