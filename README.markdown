@@ -87,7 +87,7 @@ usage
 =====
 
 ```
-Usage: prompter [infile] [outfile]
+Usage: prompter {variables} [infile] [outfile]
 ```
 
 install

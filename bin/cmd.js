@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 var argv = require('optimist').argv;
 if (!argv._[0]) {
-    return console.error('Usage: prompter [infile] [outfile]');
+    return console.error('Usage: prompter {variables} [infile] [outfile]');
 }
 var outfile = argv._[1];
 
