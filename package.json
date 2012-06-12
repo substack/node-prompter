@@ -35,5 +35,5 @@
         "url" : "http://substack.net"
     },
     "license" : "MIT",
-    "engine" : { "node" : ">=0.4" }
+    "engine" : { "node" : ">=0.6" }
 }
