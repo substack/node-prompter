@@ -37,7 +37,7 @@ function transform (context, src, cb) {
                 if (--pending === 0) {
                     cb(String(output).replace(/^\(|\)$/g, ''));
                 }
-            });
+            }, node);
         }
         else {
             var s_ = JSON.stringify(res);
