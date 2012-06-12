@@ -1,9 +1,9 @@
 {
-  "name": dirname,
+  "name": basename,
   "description": prompt(),
   "version": "0.0.0",
   "repository": {
-    "url": "git://github.com/substack/" + dirname + ".git"
+    "url": "git://github.com/substack/" + basename + ".git"
   },
   "main": prompt('entry point', 'index.js'),
   "scripts": {

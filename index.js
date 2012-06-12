@@ -5,14 +5,15 @@ var createContext = require('./lib/context');
 var terminated = require('./lib/terminated');
 
 module.exports = function (src, cb) {
-    var context = createContext();
+    var c = createContext();
     
     process.nextTick(function () {
-        transform(context, src, cb);
+        transform(c.context, src, cb);
     });
     
-    return context.stream;
+    return c.stream;
 };
+
 function transform (context, src, cb) {
     var pending = 0;
     var output = falafel('(' + src + ')', function (node) {
@@ -27,7 +28,7 @@ function transform (context, src, cb) {
             pending ++;
             
             res(function (err, s_) {
-                node.update(s_);
+                node.update(stringify(s_));
                 if (--pending === 0) {
                     cb(String(output).replace(/^\(|\)$/g, ''));
                 }
@@ -39,3 +40,7 @@ function transform (context, src, cb) {
         }
     });
 } 
+
+function stringify (s) {
+    return JSON.stringify(s, null, 2);
+}
