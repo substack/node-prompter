@@ -4,8 +4,13 @@ var vm = require('vm');
 var createContext = require('./lib/context');
 var terminated = require('./lib/terminated');
 
-module.exports = function (src, cb) {
-    var c = createContext();
+module.exports = function (src, context, cb) {
+    if (typeof context === 'function') {
+        cb = context;
+        context = {};
+    }
+    
+    var c = createContext(context);
     
     process.nextTick(function () {
         transform(c.context, src, cb);

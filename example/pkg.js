@@ -1,8 +1,11 @@
 var fs = require('fs');
-var src = fs.readFileSync(__dirname + '/pkg.json', 'utf8');
+var path = require('path');
 var prompter = require('../');
 
-var s = prompter(src, function (output) {
+var src = fs.readFileSync(__dirname + '/pkg.json', 'utf8');
+var ctx = { basename : path.basename(process.cwd()) };
+
+var s = prompter(src, ctx, function (output) {
     console.log(output);
     process.stdin.pause();
 });
