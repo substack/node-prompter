@@ -25,9 +25,10 @@ Now run the json file with the command-line tool (or write a script) to generate
 a valid json file, prompting from the user as necessary:
 
 ```
-$ prompter --tmpdir=/tmp simple.json
+$ prompter --tmpdir=/tmp simple.json > output.json
 To be or not to be?: (!2b) 
 c.x: 55
+$ cat output.json
 {
   "a": 3,
   "b": "!2b",
@@ -70,6 +71,13 @@ Evaluate the string source `src` under some optional `context`, calling
 
 Returns a readable/writable stream that should be pipe into and out of a user's
 stdin/stdout.
+
+usage
+=====
+
+```
+Usage: prompter [infile] [outfile]
+```
 
 install
 =======

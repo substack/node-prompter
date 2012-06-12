@@ -1,6 +1,6 @@
 {
     "name" : "prompter",
-    "version" : "0.0.0",
+    "version" : "0.0.1",
     "description" : "create json files, prompting for input and evaluating expressions",
     "main" : "index.js",
     "bin" : {
