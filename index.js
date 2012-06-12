@@ -34,11 +34,11 @@ function transform (context, src, cb) {
             
             res(function (err, s_) {
                 node.update(stringify(s_));
-                if (--pending === 0) {
-                    process.nextTick(function () {
+                process.nextTick(function () {
+                    if (--pending === 0) {
                         cb(null, String(output).replace(/^\(|\)$/g, ''));
-                    });
-                }
+                    }
+                });
             }, node);
         }
         else {
