@@ -28,7 +28,7 @@ test('simple', function (t) {
             },
             JSON.parse(output)
         );
-        t.equal(data, 'To be or not to be?: c.x: ');
+        t.equal('To be or not to be?: (!2b) c.x: ', data);
     });
     s.pipe(rw);
     rw.pipe(s);

@@ -28,7 +28,7 @@ To be or not to be?: (!2b)
 c.x: 55
 {
   "a": 3,
-  "b": "",
+  "b": "!2b",
   "c": {
     "x": "55",
     "y": "/tmp/y/file.txt"
