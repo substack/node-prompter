@@ -3,6 +3,8 @@ prompter
 
 Create json files, prompting for input and evaluating expressions.
 
+[![build status](https://secure.travis-ci.org/substack/node-prompter.png)](http://travis-ci.org/substack/node-prompter)
+
 example
 =======
 
