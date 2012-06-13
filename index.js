@@ -33,7 +33,8 @@ function transform (context, src, cb) {
             pending ++;
             
             res(function (err, s_) {
-                node.update(stringify(s_));
+                var indent = computeIndent(node, src);
+                node.update(stringify(s_, indent));
                 process.nextTick(function () {
                     if (--pending === 0) {
                         cb(null, String(output).replace(/^\(|\)$/g, ''));
@@ -48,6 +49,19 @@ function transform (context, src, cb) {
     });
 } 
 
-function stringify (s) {
-    return JSON.stringify(s, null, 2);
+function computeIndent (node, src) {
+    var p = node.parent && node.parent.range[0] || node.range[0];
+    var xs = String(src).split('');
+    for (var i = p; i >= 0; i--) {
+        if (xs[i] === '\n') break;
+    }
+    return Math.max(0, p - (i + 2));
+}
+
+function stringify (s, ident) {
+    var res = JSON.stringify(s, null, 2);
+    return res.split('\n').map(function (x, i) {
+        if (i == 0) return x;
+        return Array(ident + 1).join(' ') + x;
+    }).join('\n');
 }
