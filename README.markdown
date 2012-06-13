@@ -93,10 +93,16 @@ Usage: prompter {variables} [infile] [outfile]
 install
 =======
 
-With [npm](http://npmjs.org) do:
+To install the library, with [npm](http://npmjs.org) do:
 
 ```
 npm install prompter
+```
+
+or to get the command-line tool, do:
+
+```
+npm install -g prompter
 ```
 
 license
