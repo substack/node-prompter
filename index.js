@@ -33,6 +33,8 @@ function transform (context, src, cb) {
             pending ++;
             
             res(function (err, s_) {
+                if (err) return cb(err);
+                
                 var pos = computePos(node, src);
                 var indent = computeIndent(node, src);
                 node.update(stringify(s_, pos, indent));
